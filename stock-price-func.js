@@ -8,7 +8,7 @@ function getTaiwanStockPrice(ticker) {
     const url = 'https://histock.tw/stock/' + ticker
     const raw = UrlFetchApp.fetch(url).getContentText();
     const $ = Cheerio.load(raw);
-    const content = $('#Price1_lbTPrice .clr-gr').text();
+    const content = $('#Price1_lbTPrice span').text();
     if(content.length == 0) {
         return 0;
     }
